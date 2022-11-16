@@ -278,7 +278,6 @@ public class CriptObject {
                     }              
                     else
                         matrizNueva[i][j] = matriz[i-valor][j];
-
                }
          }
         
@@ -313,13 +312,15 @@ public class CriptObject {
 
         String fraseCodificada = sbuild.toString();
         
-    return fraseCodificada.replace("*", "");
+    return fraseCodificada;
        
     }
 	
 	
 	
 	public static String desencriptarPorNumeracion(String clave, String texto) {
+		
+		String cadena = encriptarPorNumeracion(clave, texto);
 		
 		clave = clave.toLowerCase();
 		StringBuilder sb = new StringBuilder();
@@ -332,7 +333,7 @@ public class CriptObject {
         String clau = sb.toString();
         texto = texto.toLowerCase();
         texto = texto.replace(" ", "");
-        String nuevaCadena = texto;
+        String nuevaCadena = cadena;
          
         
         int separador = 0;
@@ -341,7 +342,7 @@ public class CriptObject {
         int fila = (int) Math.ceil(numero);
         
         
-        char matriz[][] = new char[fila][columna];
+        char matriz[][] = new char[columna][fila];
        
         for (int i = 0; i < matriz.length; i++){
             for (int j = 0; j < matriz[i].length; j++){
@@ -349,12 +350,22 @@ public class CriptObject {
             		matriz[i][j] = nuevaCadena.charAt(separador);
                 	separador++;
                 
-            	} else {
-            		matriz[i][j] = '*';
-            	}
+            	} //else {
+            		//matriz[i][j] = '*';
+            	//}
             }
         }
+        
+        
+        for (int i = 0; i < matriz.length; i++){
+            for (int j = 0; j < matriz[i].length; j++){
+            	System.out.print(matriz[i][j]);
+            }
+            System.out.println(" ");
+        }
+        
       
+        /*
         char matrizNueva[][] = new char[fila+1][columna];
         char nuevaFila[] = new char[columna];
         
@@ -407,8 +418,12 @@ public class CriptObject {
         }
 
         String fraseCodificada = sbuild.toString();
+        */
         
-    return fraseCodificada.replace("*", "");
+        //https://es.stackoverflow.com/questions/135501/c%C3%B3mo-cambiar-posici%C3%B3n-de-elementos-de-un-arreglo-y-luego-rotar
+        
+        
+    return " "; //fraseCodificada.replace("*", "");
        
     }
 	

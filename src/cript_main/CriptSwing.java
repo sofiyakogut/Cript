@@ -20,6 +20,8 @@ package cript_main;
 		JButton descodCesar;
 		JButton codMonoalfabetico;
 		JButton descodMonoalfabetico;
+		JButton codNumeracio;
+		JButton descodNumeracio;
 		
 		JLabel codificado;
 		
@@ -67,7 +69,7 @@ package cript_main;
 			
 			//....Cesar.....
 		    codCesar = new JButton("Cod.Cesar");
-	        codCesar.setBounds(50, 230, 160, 30);
+	        codCesar.setBounds(30, 230, 160, 30);
 	        codCesar.setForeground(Color.WHITE);
 	        codCesar.setBackground(Color.decode("#a08f87"));
 	        codCesar.setFont(font);
@@ -77,7 +79,7 @@ package cript_main;
 			add(codCesar);
 		   
 			descodCesar = new JButton("Descod.Cesar");
-			descodCesar.setBounds(50, 270, 160, 30);
+			descodCesar.setBounds(30, 270, 160, 30);
 			descodCesar.setForeground(Color.WHITE);
 			descodCesar.setBackground(Color.decode("#a08f87"));
 			descodCesar.setFont(font);
@@ -89,7 +91,7 @@ package cript_main;
 		    
 		    //.....Monoalfabetico.....
 		    codMonoalfabetico = new JButton("Cod.Monoalfabetico");
-		    codMonoalfabetico.setBounds(240, 230, 200, 30);
+		    codMonoalfabetico.setBounds(220, 230, 200, 30);
 		    codMonoalfabetico.setForeground(Color.WHITE);
 		    codMonoalfabetico.setBackground(Color.decode("#a08f87"));
 		    codMonoalfabetico.setFont(font);
@@ -99,7 +101,7 @@ package cript_main;
 			add(codMonoalfabetico);
 		   
 			descodMonoalfabetico = new JButton("Descod.Monoalfabetico");
-			descodMonoalfabetico.setBounds(240, 270, 200, 30);
+			descodMonoalfabetico.setBounds(220, 270, 200, 30);
 			descodMonoalfabetico.setForeground(Color.WHITE);
 			descodMonoalfabetico.setBackground(Color.decode("#a08f87"));
 			descodMonoalfabetico.setFont(font);
@@ -107,8 +109,32 @@ package cript_main;
 			descodMonoalfabetico.setFocusPainted(false);
 			descodMonoalfabetico.addActionListener(this);
 		    add(descodMonoalfabetico);
+
+		    
+		    //.....Por numeración.....
+		    codNumeracio = new JButton("Cod.porNumeracio");
+		    codNumeracio.setBounds(450, 230, 200, 30);
+		    codNumeracio.setForeground(Color.WHITE);
+		    codNumeracio.setBackground(Color.decode("#a08f87"));
+		    codNumeracio.setFont(font);
+		    codNumeracio.setBorderPainted(false);
+		    codNumeracio.setFocusPainted(false);
+		    codNumeracio.addActionListener(this);
+			add(codNumeracio);
+		   
+			
+			descodNumeracio = new JButton("Descod.porNumeracio");
+			descodNumeracio.setBounds(450, 270, 200, 30);
+			descodNumeracio.setForeground(Color.WHITE);
+			descodNumeracio.setBackground(Color.decode("#a08f87"));
+			descodNumeracio.setFont(font);
+			descodNumeracio.setBorderPainted(false);
+			descodNumeracio.setFocusPainted(false);
+			descodNumeracio.addActionListener(this);
+		    add(descodNumeracio);
 		    
 		    
+		    //.....Linea.....
 		    JLabel linea2 = new JLabel("______________________________________");
 			linea2.setFont(font1);
 			linea2.setForeground(Color.WHITE);
@@ -137,6 +163,10 @@ package cript_main;
 				codificado.setText("Texto codificado: " + cript_object.CriptObject.encriptarMonoalfabetico(claveField.getText(), textoField.getText()));
 			} else if (e.getSource() == descodMonoalfabetico) {
 				codificado.setText("Texto descodificado: " + cript_object.CriptObject.desencriptarMonoalfabetico(claveField.getText(), textoField.getText()));
+			} else if (e.getSource() == codNumeracio) {
+				codificado.setText("Texto codificado: " + cript_object.CriptObject.encriptarPorNumeracion(claveField.getText(), textoField.getText()).replace("*", ""));
+			} else if (e.getSource() == descodNumeracio) {
+				codificado.setText("Texto descodificado: " + cript_object.CriptObject.desencriptarPorNumeracion(claveField.getText(), textoField.getText()).replace("*", ""));
 			}
 			
 		}
