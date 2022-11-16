@@ -12,7 +12,9 @@ public class CriptMain {
 		//System.out.println(CriptObject.encriptarMonoalfabetico("seguretat", "ATACIMMINENT"));
 		//System.out.println(CriptObject.desencriptarMonoalfabetico("seguretat", "szskguugfefz"));
 		
-		System.out.println(CriptObject.encriptarPorNumeracion("SEGURTA", "ATACIMMEDIATDESDELFLANCSUDOEST"));
+		CriptSwing interfaz = new CriptSwing();
+		
+		//System.out.println(CriptObject.encriptarPorNumeracion("SEGURTA", "ATACIMMEDIATDESDELFLANCSUDOEST"));
 		
 	}
 	

@@ -37,7 +37,7 @@ public class CriptObject {
 		    return textoCodificado;
 	}
 	 
-	public static String desencriptarCesar(String texto, int clave) {
+	public static String desencriptarCesar(int clave, String texto) {
 		char caracter;
 		String textoCodificado = "";
 		texto = texto.toLowerCase();
