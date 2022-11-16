@@ -22,6 +22,7 @@ public class CriptObject {
 		String textoCodificado = "";
 		 
 		texto = texto.toLowerCase();
+		texto = texto.replace(" ", "");
 		
 		    for (int i = 0; i<texto.length(); i++) {
 		      for (int j = 0; j < alfabeto.length; j++) {
@@ -41,6 +42,7 @@ public class CriptObject {
 		char caracter;
 		String textoCodificado = "";
 		texto = texto.toLowerCase();
+		texto = texto.replace(" ", "");
 		
 		    for (int i = 0; i<texto.length(); i++) {
 		      for (int j = 0; j < alfabeto.length; j++) {
@@ -121,6 +123,7 @@ public class CriptObject {
         char caracterAlfabeto;
 		String textoCodificado = " ";
         texto = texto.toLowerCase();
+        texto = texto.replace(" ", "");
         
         for (int i = 0; i < texto.length(); i++) {
 		      for (int j = 0; j < alfabeto2.length(); j++) {
@@ -198,6 +201,7 @@ public class CriptObject {
         char caracterAlfabeto;
 		String textoCodificado = " ";
         texto = texto.toLowerCase();
+        texto = texto.replace(" ", "");
         
         for (int i = 0; i < texto.length(); i++) {
 		      for (int j = 0; j < alfabetoFinal.length(); j++) {
@@ -231,6 +235,7 @@ public class CriptObject {
        
         String clau = sb.toString();
         texto = texto.toLowerCase();
+        texto = texto.replace(" ", "");
         String nuevaCadena = clau.concat(texto);
          
         
@@ -326,6 +331,7 @@ public class CriptObject {
        
         String clau = sb.toString();
         texto = texto.toLowerCase();
+        texto = texto.replace(" ", "");
         String nuevaCadena = texto;
          
         
