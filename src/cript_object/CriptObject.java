@@ -312,6 +312,7 @@ public class CriptObject {
 
         String fraseCodificada = sbuild.toString();
         
+        
     return fraseCodificada;
        
     }
@@ -320,7 +321,7 @@ public class CriptObject {
 	
 	public static String desencriptarPorNumeracion(String clave, String texto) {
 		
-		String cadena = encriptarPorNumeracion(clave, texto);
+		String cadena = texto;
 		
 		clave = clave.toLowerCase();
 		StringBuilder sb = new StringBuilder();
@@ -350,86 +351,91 @@ public class CriptObject {
             		matriz[i][j] = nuevaCadena.charAt(separador);
                 	separador++;
                 
-            	} //else {
-            		//matriz[i][j] = '*';
-            	//}
+            	}
             }
         }
         
         
-        for (int i = 0; i < matriz.length; i++){
-            for (int j = 0; j < matriz[i].length; j++){
-            	System.out.print(matriz[i][j]);
-            }
-            System.out.println(" ");
-        }
-        
-      
-        /*
         char matrizNueva[][] = new char[fila+1][columna];
-        char nuevaFila[] = new char[columna];
+        char nuevaColumna[] = new char[columna];
         
-        for (int x = 0; x < nuevaFila.length; x++){
-        	nuevaFila[x] = '/';
+        for (int x = 0; x < nuevaColumna.length; x++){
+        	nuevaColumna[x] = '/';
         }
         
-        int posNuevaFila = fila;
+        int posNuevaColumna = fila;
         
-        int valor = 0; 
-
-        for (int i = 0; i < matrizNueva.length; i++) {        
+        for (int i = 0; i < matrizNueva.length; i++) {   
+            int valor = 0;
             for (int j = 0; j < matrizNueva[0].length; j++) {
-                    if (i == posNuevaFila) {
-                       matrizNueva[i][j] = nuevaFila[j];
-                       valor = 1;
-                    }              
-                    else
-                        matrizNueva[i][j] = matriz[i-valor][j];
+                 if (j == posNuevaColumna) {
+                    matrizNueva[i][j] = nuevaColumna[i];
+                    valor = 1;
+                 }              
+                 else
+                     matrizNueva[i][j] = matriz[i][j-valor];
 
-               }
-         }
-        
-     
-        char matrizProva[][] = new char[columna][fila+1];
-       
-        for (int i = 0; i < matrizNueva.length; i++){
-            for (int j = 0; j < matrizNueva[i].length; j++){
-            	matrizProva[j][i] = matrizNueva[i][j];
             }
-        }
-         
+      }
         
         StringBuilder str = new StringBuilder();
-        for (int i = 0; i < matrizProva.length; i++){
-            for (int j = 0; j < matrizProva[i].length; j++){
-              str.append(matrizProva[i][j]);
+        for (int i = 0; i < matrizNueva.length; i++){
+            for (int j = 0; j < matrizNueva[i].length; j++){
+              str.append(matrizNueva[i][j]);
             }
         }
         
         String frase = str.toString();
         String[] textoSeparado = frase.split("/");
-        ArrayList<String> lista = new ArrayList<>(Arrays.asList(textoSeparado));
-        Collections.sort(lista);
         
-        StringBuilder sbuild = new StringBuilder();
         
-        for (String s : lista){
-        	sbuild.append(s);
+        String mensaje = " ";
+        
+        for (int i = 0; i < clau.length(); i++){
+        	for (int j = 0; j < textoSeparado.length; j++){
+        		if(clau.charAt(i) == textoSeparado[j].charAt(0)) {
+        			mensaje = mensaje.concat(String.valueOf(textoSeparado[j]));
+        			mensaje = mensaje.replace(" ", "");
+        		}
+        	}
         }
-
-        String fraseCodificada = sbuild.toString();
-        */
-        
-        //https://es.stackoverflow.com/questions/135501/c%C3%B3mo-cambiar-posici%C3%B3n-de-elementos-de-un-arreglo-y-luego-rotar
         
         
-    return " "; //fraseCodificada.replace("*", "");
+        char matrizdos[][] = new char[columna][fila];
+        int sep = 0;
+        
+        for (int i = 0; i < matrizdos.length; i++){
+            for (int j = 0; j < matrizdos[i].length; j++){
+            	if(sep < mensaje.length()) {
+            		matrizdos[i][j] = mensaje.charAt(sep);
+            		sep++;
+                
+            	}
+            }
+        }
+        
+        char matrizProva[][] = new char[columna][fila+1];
+        
+        for (int i = 0; i < matrizdos.length; i++){
+            for (int j = 0; j < matrizdos[i].length; j++){
+            	matrizProva[j][i] = matrizdos[i][j];
+            }
+        }
+        
+        
+        StringBuilder str2 = new StringBuilder();
+        
+        for (int i = 0; i < matrizProva.length; i++){
+            for (int j = 0; j < matrizProva[i].length; j++){
+            	str2.append(matrizProva[i][j]);
+            } 
+        }
+        
+        String codificago = str2.toString().replace(clau, "");
+        
+        
+    return codificago; 
        
     }
 	
 }	
-	
-
-
-
-

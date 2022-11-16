@@ -164,7 +164,7 @@ package cript_main;
 			} else if (e.getSource() == descodMonoalfabetico) {
 				codificado.setText("Texto descodificado: " + cript_object.CriptObject.desencriptarMonoalfabetico(claveField.getText(), textoField.getText()));
 			} else if (e.getSource() == codNumeracio) {
-				codificado.setText("Texto codificado: " + cript_object.CriptObject.encriptarPorNumeracion(claveField.getText(), textoField.getText()).replace("*", ""));
+				codificado.setText("Texto codificado: " + cript_object.CriptObject.encriptarPorNumeracion(claveField.getText(), textoField.getText()));
 			} else if (e.getSource() == descodNumeracio) {
 				codificado.setText("Texto descodificado: " + cript_object.CriptObject.desencriptarPorNumeracion(claveField.getText(), textoField.getText()).replace("*", ""));
 			}
