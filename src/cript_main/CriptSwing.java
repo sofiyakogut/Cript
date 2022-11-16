@@ -23,9 +23,7 @@ package cript_main;
 		
 		JLabel codificado;
 		
-		
 		public CriptSwing() {
-			
 			
 			//No se puede modificar el tamaño
 			setResizable(false);
@@ -131,7 +129,6 @@ package cript_main;
 		
 		public void actionPerformed(ActionEvent e) {
 			
-			
 			if (e.getSource() == codCesar) {
 				codificado.setText("Texto codificado: " + cript_object.CriptObject.encriptarCesar(Integer.parseInt(claveField.getText()), textoField.getText()));
 			} else if (e.getSource() == descodCesar) {
@@ -141,7 +138,6 @@ package cript_main;
 			} else if (e.getSource() == descodMonoalfabetico) {
 				codificado.setText("Texto descodificado: " + cript_object.CriptObject.desencriptarMonoalfabetico(claveField.getText(), textoField.getText()));
 			}
-			
 			
 		}
 	}
